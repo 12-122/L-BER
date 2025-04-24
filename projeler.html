@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projelerim - Proje Kütüphanem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Elon Musk Presentation Özel Stil */
+        .presentation-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .presentation-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #5e35b1;
+            font-size: 2.5rem;
+        }
+        
+        .presentation-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .presentation-credit {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .presentation-credit a {
+            color: #5e35b1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .presentation-credit a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo" data-aos="fade-right">
+                <h1>Proje Kütüphanem</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li data-aos="fade-down" data-aos-delay="100"><a href="index.html">Ana Sayfa</a></li>
+                    <li data-aos="fade-down" data-aos-delay="200"><a href="projeler.html" class="active">Projelerim</a></li>
+                    <li data-aos="fade-down" data-aos-delay="300"><a href="fikirler.html">Fikirlerim</a></li>
+                </ul>
+            </nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="zoom-in">Projelerim</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Geliştirdiğim projelerin detaylı koleksiyonu</p>
+        </div>
+    </section>
+
+    <section id="elon-presentation" class="presentation-section">
+        <div class="container">
+            <h2 class="presentation-title" data-aos="fade-up">Elon Musk Presentation</h2>
+            <div class="presentation-container" data-aos="fade-up" data-aos-delay="200">
+                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https://www.canva.com/design/DAGk6dImeJ4/3U9R-m_C4Wx-PMuGZULSWA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
+                </div>
+                <div class="presentation-credit">
+                    <a href="https://www.canva.com/design/DAGk6dImeJ4/3U9R-m_C4Wx-PMuGZULSWA/view?utm_content=DAGk6dImeJ4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">Elon Musk</a> - Nadir Köroğlu
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="okul">Okul Projeleri</button>
+                <button class="filter-btn" data-filter="web">Web Uygulamaları</button>
+                <button class="filter-btn" data-filter="mobil">Mobil Uygulamalar</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Projeler içeriği boş bırakıldı -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-aos="fade-right">
+                    <h2>Proje Kütüphanem</h2>
+                    <p>Projelerim ve fikirlerim burada.</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="projeler.html">Projelerim</a></li>
+                        <li><a href="fikirler.html">Fikirlerim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Proje Kütüphanem. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Proje Filtresi
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Aktif buton sınıfını değiştir
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filtre değerini al
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    // Projeleri filtrele
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 200);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Kütüphanem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Elon Musk Presentation Özel Stil */
+        .elon-presentation-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .elon-presentation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .presentation-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .presentation-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .elon-presentation-card:hover .presentation-img img {
+            transform: scale(1.1);
+        }
+        
+        .presentation-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .presentation-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .presentation-info p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .presentation-buttons {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo" data-aos="fade-right">
+                <h1>Proje Kütüphanem</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li data-aos="fade-down" data-aos-delay="100"><a href="index.html" class="active">Ana Sayfa</a></li>
+                    <li data-aos="fade-down" data-aos-delay="200"><a href="projeler.html">Projelerim</a></li>
+                    <li data-aos="fade-down" data-aos-delay="300"><a href="fikirler.html">Fikirlerim</a></li>
+                </ul>
+            </nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="zoom-in">Hoş Geldiniz</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Projelerimi ve fikirlerimi sergilediğim kişisel kütüphaneme hoş geldiniz.</p>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                    <a href="projeler.html" class="btn btn-primary">Projelerimi Keşfet</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Öne Çıkan Projeler</h2>
+            <div class="projects-grid">
+                <!-- Elon Musk Presentation -->
+                <div class="elon-presentation-card" data-aos="fade-up">
+                    <div class="presentation-img">
+                        <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg" alt="Elon Musk Presentation">
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Elon Musk Presentation</h3>
+                        <p>Elon Musk'ın kariyeri, başarıları ve şirketleri hakkında detaylı bir sunum çalışması.</p>
+                        <div class="presentation-buttons">
+                            <a href="projeler.html#elon-presentation" class="btn btn-primary">Sunumu Görüntüle</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Diğer projeler buraya eklenebilir -->
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <a href="projeler.html" class="btn btn-primary">Tüm Projeleri Görüntüle</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ideas-preview">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Son Fikirlerim</h2>
+            <div class="ideas-wrapper">
+                <!-- Fikirler içeriği boş bırakıldı -->
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <a href="fikirler.html" class="btn btn-secondary">Tüm Fikirleri Görüntüle</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-aos="fade-right">
+                    <h2>Proje Kütüphanem</h2>
+                    <p>Projelerim ve fikirlerim burada.</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="projeler.html">Projelerim</a></li>
+                        <li><a href="fikirler.html">Fikirlerim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Proje Kütüphanem. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

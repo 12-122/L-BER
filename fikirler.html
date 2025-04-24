@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fikirlerim - Proje Kütüphanem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Fikirler Sayfası Özel Stiller */
+        .page-header {
+            background: linear-gradient(135deg, rgba(94, 53, 177, 0.1), rgba(3, 169, 244, 0.1));
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ideas-gallery {
+            padding: 80px 0;
+        }
+        
+        .idea-large {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .idea-large:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .idea-header {
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .idea-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .idea-meta {
+            flex: 1;
+        }
+        
+        .idea-meta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .idea-meta .date {
+            color: #777;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .idea-content {
+            padding: 30px;
+        }
+        
+        .idea-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .idea-footer {
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .idea-category {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .idea-category span {
+            padding: 5px 15px;
+            border-radius: 50px;
+            background: rgba(94, 53, 177, 0.1);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .idea-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .idea-actions .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .comment-section {
+            padding: 20px 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .comment-section h3 {
+            margin-bottom: 20px;
+        }
+        
+        .comment-form {
+            margin-bottom: 30px;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            height: 120px;
+            margin-bottom: 15px;
+            resize: none;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .comment-list {
+            margin-top: 30px;
+        }
+        
+        .comment {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.02);
+            margin-bottom: 20px;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .comment-user {
+            font-weight: 600;
+        }
+        
+        .comment-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .idea-cta {
+            background: linear-gradient(135deg, rgba(94, 53, 177, 0.05), rgba(3, 169, 244, 0.05));
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .idea-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .idea-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .idea-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo" data-aos="fade-right">
+                <h1>Proje Kütüphanem</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li data-aos="fade-down" data-aos-delay="100"><a href="index.html">Ana Sayfa</a></li>
+                    <li data-aos="fade-down" data-aos-delay="200"><a href="projeler.html">Projelerim</a></li>
+                    <li data-aos="fade-down" data-aos-delay="300"><a href="fikirler.html" class="active">Fikirlerim</a></li>
+                </ul>
+            </nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="zoom-in">Fikirlerim</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Henüz hayata geçirmediğim ama gelecekte gerçekleştirmeyi planladığım fikirler ve konseptler</p>
+        </div>
+    </section>
+
+    <section class="ideas-gallery">
+        <div class="container">
+            <!-- Fikirler içeriği boş bırakıldı -->
+        </div>
+    </section>
+
+    <section class="idea-cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Bir Fikrin mi Var?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Benimle bir fikir paylaşmak veya mevcut fikirlerim hakkında geri bildirimde bulunmak istiyorsan aşağıdaki formu doldurabilirsin.</p>
+            <div class="idea-form" data-aos="fade-up" data-aos-delay="200">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ad Soyad</label>
+                        <input type="text" id="name" placeholder="Adınızı ve soyadınızı girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" placeholder="E-posta adresinizi girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Geri Bildirim Türü</label>
+                        <select id="type">
+                            <option value="">Seçiniz</option>
+                            <option value="new_idea">Yeni Fikir</option>
+                            <option value="feedback">Mevcut Fikir Hakkında Geri Bildirim</option>
+                            <option value="collaboration">İşbirliği Teklifi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesaj</label>
+                        <textarea id="message" placeholder="Fikirlerinizi veya geri bildirimlerinizi paylaşın"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-aos="fade-right">
+                    <h2>Proje Kütüphanem</h2>
+                    <p>Projelerim ve fikirlerim burada.</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="projeler.html">Projelerim</a></li>
+                        <li><a href="fikirler.html">Fikirlerim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Proje Kütüphanem. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
